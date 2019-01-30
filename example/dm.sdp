@@ -1,0 +1,148 @@
+#20001001
+1	Pierre	Pierre	NNP	-	+	named:x-c	_	_	_	_	_	_	_	_	_	_	_
+2	Vinken	_generic_proper_ne_	NNP	-	-	named:x-c	compound	_	_	ARG1	ARG1	_	_	_	_	_	_
+3	,	_	,	-	-	_	_	_	_	_	_	_	_	_	_	_	_
+4	61	_generic_card_ne_	CD	-	+	card:i-i-c	_	_	_	_	_	_	_	_	_	_	_
+5	years	year	NNS	-	+	n:x	_	ARG1	_	_	_	_	_	_	_	_	_
+6	old	old	JJ	-	+	a:e-p	_	_	measure	_	_	_	_	_	_	_	_
+7	,	_	,	-	-	_	_	_	_	_	_	_	_	_	_	_	_
+8	will	will	MD	-	-	_	_	_	_	_	_	_	_	_	_	_	_
+9	join	join	VB	+	+	v:e-i-p	_	_	_	_	_	_	ARG1	_	_	_	loc
+10	the	the	DT	-	+	q:i-h-h	_	_	_	_	_	_	_	_	_	_	_
+11	board	board	NN	-	-	n_of:x-i	_	_	_	_	ARG2	BV	_	_	_	_	_
+12	as	as	IN	-	+	p:e-u-i	_	_	_	_	_	_	_	_	_	_	_
+13	a	a	DT	-	+	q:i-h-h	_	_	_	_	_	_	_	_	_	_	_
+14	nonexecutive	_generic_jj_	JJ	-	+	string:e-u	_	_	_	_	_	_	_	_	_	_	_
+15	director	director	NN	-	-	n_of:x-i	_	_	_	_	_	_	ARG2	BV	ARG1	_	_
+16	Nov.	Nov.	NNP	-	+	mofy:x-c	_	_	_	_	_	_	_	_	_	_	_
+17	29	_generic_dom_card_ne_	CD	-	+	dofm:x-c	_	_	_	_	_	_	_	_	_	of	_
+18	.	_	.	-	-	_	_	_	_	_	_	_	_	_	_	_	_
+
+#20001002
+1	Mr.	Mr.	NNP	-	+	n:x	_	_	_	_	_	_	_	_
+2	Vinken	_generic_proper_ne_	NNP	-	-	named:x-c	compound	ARG1	_	_	_	_	_	_
+3	is	is	VBZ	+	+	v_id:e-p-i	_	_	_	_	_	_	_	_
+4	chairman	chairman	NN	-	-	n_of:x	_	ARG2	ARG1	_	_	_	_	_
+5	of	of	IN	-	+	p:e-x-i	_	_	_	_	_	_	_	_
+6	Elsevier	_generic_proper_ne_	NNP	-	-	named:x-c	_	_	ARG2	compound	_	_	_	appos
+7	N.V.	N.V.	NNP	-	+	n:x	_	_	_	_	_	_	_	_
+8	,	_	,	-	-	_	_	_	_	_	_	_	_	_
+9	the	the	DT	-	+	q:i-h-h	_	_	_	_	_	_	_	_
+10	Dutch	Dutch	JJ	-	+	a:e-p	_	_	_	_	_	_	_	_
+11	publishing	publish	NN	-	+	v:e-i-p	_	_	_	_	_	_	_	_
+12	group	group	NN	-	+	n_of:x	_	_	_	_	BV	ARG1	compound	_
+13	.	_	.	-	-	_	_	_	_	_	_	_	_	_
+
+#20003001
+1	A	a	DT	-	+	q:i-h-h	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+2	form	form	NN	-	+	n_of:x-i	BV	_	_	ARG2	_	_	_	ARG1	_	_	_	_	_	_	_	_	_	_	_	_
+3	of	of	IN	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+4	asbestos	asbestos	NN	-	-	n:x	_	ARG1	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+5	once	once	RB	-	+	a:e-e	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+6	used	use	VBN	-	+	v:e-i-i-h	_	_	ARG1	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+7	to	to	TO	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+8	make	make	VB	-	+	v:e-i-p-u	_	_	_	ARG3	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+9	Kent	Kent	NNP	-	+	named:x-c	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+10	cigarette	cigarette	NN	-	+	n:x	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+11	filters	filter	NNS	-	-	n:x	_	_	_	_	ARG2	compound	compound	_	_	_	_	_	_	_	_	_	_	_	_	_
+12	has	has	VBZ	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+13	caused	cause	VBN	-	+	v:e-i-p	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	ARG2
+14	a	a	DT	-	+	q:i-h-h	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+15	high	high	JJ	-	+	a:e-p	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+16	percentage	percentage	NN	-	+	n_of:x-i	_	_	_	_	_	_	_	ARG2	BV	ARG1	_	_	_	_	_	_	_	_	_	_
+17	of	of	IN	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+18	cancer	cancer	NN	-	+	n:x	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+19	deaths	death	NNS	-	-	n:x	_	_	_	_	_	_	_	_	_	_	ARG1	compound	ARG1	_	_	_	_	_	_	_
+20	among	among	IN	-	+	p:e-u-i	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+21	a	a	DT	-	+	q:i-h-h	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+22	group	group	NN	-	+	n_of:x-i	_	_	_	_	_	_	_	_	_	_	_	_	ARG2	BV	_	_	_	_	_	_
+23	of	of	IN	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+24	workers	worker	NNS	-	-	n:x	_	_	_	_	_	_	_	_	_	_	_	_	_	_	ARG1	ARG2	_	_	_	_
+25	exposed	expose	VBN	-	+	v_to:e-i-p-i	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	ARG1	_
+26	to	to	TO	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+27	it	it	PRP	-	-	pron:x	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	ARG3	_	_	_	_
+28	more	more+than	RBR	-	-	a:e-e	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	mwe	_	_	_
+29	than	more+than	IN	-	+	a:e-e	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+30	30	_generic_card_ne_	CD	-	+	card:i-i-c	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+31	years	year	NNS	-	-	n:x	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	ARG1	ARG2	_
+32	ago	ago	RB	-	+	p:e-i-u	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	ARG1	_	_	_
+33	,	_	,	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+34	researchers	researcher	NNS	-	-	n_of:x-i	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	ARG1
+35	reported	report	VBD	+	+	v_to:e-i-h-i	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+36	.	_	.	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+
+#20003002
+1	The	the	DT	-	+	q:i-h-h	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+2	asbestos	asbestos	NN	-	+	n:x	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+3	fiber	fiber	NN	-	-	n:x	BV	compound	appos	_	ARG1	_	_	_	_	_	_	_	_	_	_	_
+4	,	_	,	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+5	crocidolite	_generic_nn_	NN	-	+	string:x	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+6	,	_	,	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+7	is	is	VBZ	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+8	unusually	unusually	RB	-	+	x_deg:e-u	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+9	resilient	_generic_jj_	JJ	-	+	string:e-u	_	_	_	ARG1	_	ARG1	_	_	_	_	_	_	_	_	_	_
+10	once	once	IN	-	+	x_subord:e-h-h	_	_	_	_	_	_	_	_	ARG1	_	_	_	_	_	_	_
+11	it	it	PRP	-	-	pron:x	_	_	_	_	_	_	ARG1	_	_	_	_	_	_	_	_	_
+12	enters	enter	VBZ	-	+	v:e-i-p	_	_	_	_	_	ARG2	_	_	_	_	_	_	_	_	_	_
+13	the	the	DT	-	+	q:i-h-h	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+14	lungs	lung	NNS	-	-	n:x	_	_	_	_	_	_	ARG2	BV	_	_	_	_	_	_	_	_
+15	,	_	,	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+16	with	with	IN	-	+	x_subord:e-h-h	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	ARG2
+17	even	even	RB	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+18	brief	brief	JJ	-	+	a:e-p	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+19	exposures	exposure	NNS	-	-	n_of-to:x-i	_	_	_	_	_	_	_	_	_	ARG1	ARG1	ARG1	_	_	_	_
+20	to	to	TO	-	+	p:e-u-i	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+21	it	it	PRP	-	-	pron:x	_	_	_	_	_	_	_	_	_	_	ARG2	_	_	_	_	_
+22	causing	cause	VBG	-	+	v:e-i-p	_	_	_	_	_	_	_	_	ARG2	_	_	_	_	_	_	_
+23	symptoms	symptom	NNS	-	-	n:x	_	_	_	_	_	_	_	_	_	_	_	ARG2	ARG1	_	_	_
+24	that	that	IN	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+25	show	show	VBP	-	+	v_up:e-i	_	_	_	_	_	_	_	_	_	_	_	_	_	loc	_	_
+26	up	up	RP	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+27	decades	decade	NNS	-	+	n:x	_	_	_	_	_	_	_	_	_	_	_	_	_	_	loc	_
+28	later	later	RB	-	+	time_n:x	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+29	,	_	,	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+30	researchers	researcher	NNS	-	-	n_of:x-i	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	ARG1
+31	said	say	VBD	+	+	v_to:e-i-h-i	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+32	.	_	.	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+
+#20003003
+1	Lorillard	_generic_proper_ne_	NNP	-	-	named:x-c	compound	_	appos	_	_	_	_	_	_	ARG1	_	_	_	_	_
+2	Inc.	Inc.	NNP	-	+	n:x	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+3	,	_	,	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+4	the	the	DT	-	+	q:i-h-h	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+5	unit	unit	NN	-	+	n_of:x-i	_	BV	_	_	_	_	ARG1	_	_	_	_	_	_	_	_
+6	of	of	IN	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+7	New	_generic_proper_ne_	NNP	-	+	named:x-c	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+8	York-based	base	NNP	-	+	v:e-i-p	_	_	_	compound	_	_	_	_	_	_	_	_	_	_	_
+9	Loews	_generic_proper_ne_	NNP	-	-	named:x-c	_	_	ARG1	_	ARG2	compound	_	_	_	_	_	_	_	_	_
+10	Corp.	corp.	NNP	-	+	n:x	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+11	that	that	WDT	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+12	makes	make	VBZ	-	+	v:e-i-p-u	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+13	Kent	Kent	NNP	-	+	named:x-c	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+14	cigarettes	cigarette	NNS	-	-	n:x	_	_	_	_	_	_	ARG2	compound	_	_	_	_	_	_	_
+15	,	_	,	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+16	stopped	stop	VBD	+	+	v_prd:e-h	_	_	_	_	_	_	_	_	_	_	_	_	_	_	ARG1
+17	using	use	VBG	-	+	v:e-i-p	_	_	_	_	_	_	_	_	ARG1	_	ARG1	_	_	_	_
+18	crocidolite	_generic_nn_	NN	-	-	string:x	_	_	_	_	_	_	_	_	_	ARG2	_	_	_	_	_
+19	in	in	IN	-	+	p:e-u-i	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+20	its	its	PRP$	-	+	def_explicit_q:i-h-h	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+21	Micronite	_generic_proper_ne_	NN	-	+	named:x-c	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+22	cigarette	cigarette	NN	-	+	n:x	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+23	filters	filter	NNS	-	-	n:x	_	_	_	_	_	_	_	_	_	_	ARG2	poss	compound	compound	_
+24	in	in	IN	-	+	p_temp:e-u-i	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+25	1956	_generic_year_ne_	CD	-	-	yofc:x-c	_	_	_	_	_	_	_	_	_	_	_	_	_	_	ARG2
+26	.	_	.	-	-	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_	_
+
+#20003005
+1	A	a	DT	-	+	q:i-h-h	_	_	_	_	_	_
+2	Lorillard	_generic_proper_ne_	NNP	-	+	named:x-c	_	_	_	_	_	_
+3	spokewoman	_generic_nn_	NN	-	-	string:x	BV	compound	ARG1	_	_	_
+4	said	say	VBD	+	+	v_to:e-i-h-i	_	_	_	_	_	_
+5	,	_	,	-	-	_	_	_	_	_	_	_
+6	“	_	``	-	-	_	_	_	_	_	_	_
+7	This	this	DT	-	-	generic_entity:x	_	_	_	ARG1	_	_
+8	is	is	VBZ	-	+	v_id:e-p-i	_	_	ARG2	_	_	_
+9	an	an	DT	-	+	q:i-h-h	_	_	_	_	_	_
+10	old	old	JJ	-	+	a:e-p	_	_	_	_	_	_
+11	story	story	NN	-	-	n:x	_	_	_	ARG2	BV	ARG1
+12	.	_	.	-	-	_	_	_	_	_	_	_

@@ -1,0 +1,164 @@
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX eds:<http://www.delph-in.net/rdf/eds#> 
+select ?graph (group_concat(?100; separator = "\t") AS ?100Values) 
+where { 
+GRAPH ?graph { 
+?100 eds:predicate "_the_q"^^xsd:string . 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX eds:<http://www.delph-in.net/rdf/eds#> 
+select ?graph (group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values) 
+where { 
+GRAPH ?graph { 
+{ ?100 eds:ARG4 ?101 } UNION { { ?100 eds:ARG ?101 } UNION { { ?100 eds:ARG3 ?101 } UNION { { ?100 eds:ARG2 ?101 } UNION { ?100 eds:ARG1 ?101 } } } } 
+FILTER ( ( !bound(?101) || !bound(?100) || ?101!=?100 ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX eds:<http://www.delph-in.net/rdf/eds#> 
+select ?graph (group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x; separator = "\t") AS ?xValues) 
+where { 
+GRAPH ?graph { 
+?100 eds:ARG1 ?x . 
+?x eds:ARG1 ?101 . 
+FILTER ( ( !bound(?101) || !bound(?100) || ?101!=?100 ) && ( !bound(?101) || !bound(?x) || ?101!=?x ) && ( !bound(?100) || !bound(?x) || ?100!=?x ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX eds:<http://www.delph-in.net/rdf/eds#> 
+select ?graph (group_concat(?z; separator = "\t") AS ?zValues)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x; separator = "\t") AS ?xValues) 
+where { 
+GRAPH ?graph { 
+?100 eds:ARG2 ?z . 
+?100 eds:ARG1 ?x . 
+FILTER ( ( !bound(?z) || !bound(?100) || ?z!=?100 ) && ( !bound(?z) || !bound(?x) || ?z!=?x ) && ( !bound(?100) || !bound(?x) || ?100!=?x ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX eds:<http://www.delph-in.net/rdf/eds#> 
+select ?graph (group_concat(?102; separator = "\t") AS ?102Values)(group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x; separator = "\t") AS ?xValues) 
+where { 
+GRAPH ?graph { 
+?100 eds:ARG2 ?101 . 
+?100 eds:ARG1 ?x . 
+?x eds:ARG1 ?102 . 
+FILTER ( ( !bound(?102) || !bound(?101) || ?102!=?101 ) && ( !bound(?102) || !bound(?100) || ?102!=?100 ) && ( !bound(?102) || !bound(?x) || ?102!=?x ) && ( !bound(?101) || !bound(?100) || ?101!=?100 ) && ( !bound(?101) || !bound(?x) || ?101!=?x ) && ( !bound(?100) || !bound(?x) || ?100!=?x ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX eds:<http://www.delph-in.net/rdf/eds#> 
+select ?graph (group_concat(?102; separator = "\t") AS ?102Values)(group_concat(?x2; separator = "\t") AS ?x2Values)(group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x1; separator = "\t") AS ?x1Values) 
+where { 
+GRAPH ?graph { 
+?100 eds:ARG2 ?x2 . 
+?100 eds:ARG1 ?x1 . 
+?x1 eds:ARG1 ?101 . 
+?x2 eds:ARG1 ?102 . 
+FILTER ( ( !bound(?102) || !bound(?x2) || ?102!=?x2 ) && ( !bound(?102) || !bound(?101) || ?102!=?101 ) && ( !bound(?102) || !bound(?100) || ?102!=?100 ) && ( !bound(?102) || !bound(?x1) || ?102!=?x1 ) && ( !bound(?x2) || !bound(?101) || ?x2!=?101 ) && ( !bound(?x2) || !bound(?100) || ?x2!=?100 ) && ( !bound(?x2) || !bound(?x1) || ?x2!=?x1 ) && ( !bound(?101) || !bound(?100) || ?101!=?100 ) && ( !bound(?101) || !bound(?x1) || ?101!=?x1 ) && ( !bound(?100) || !bound(?x1) || ?100!=?x1 ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX eds:<http://www.delph-in.net/rdf/eds#> 
+select ?graph (group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x; separator = "\t") AS ?xValues) 
+where { 
+GRAPH ?graph { 
+?100 eds:ARG1 ?x . 
+?101 eds:ARG1 ?x . 
+FILTER ( ( !bound(?101) || !bound(?100) || ?101!=?100 ) && ( !bound(?101) || !bound(?x) || ?101!=?x ) && ( !bound(?100) || !bound(?x) || ?100!=?x ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX eds:<http://www.delph-in.net/rdf/eds#> 
+select ?graph (group_concat(?102; separator = "\t") AS ?102Values)(group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x; separator = "\t") AS ?xValues) 
+where { 
+GRAPH ?graph { 
+?100 eds:ARG1 ?x . 
+?101 eds:ARG1 ?x . 
+?x eds:ARG1 ?102 . 
+FILTER ( ( !bound(?102) || !bound(?101) || ?102!=?101 ) && ( !bound(?102) || !bound(?100) || ?102!=?100 ) && ( !bound(?102) || !bound(?x) || ?102!=?x ) && ( !bound(?101) || !bound(?100) || ?101!=?100 ) && ( !bound(?101) || !bound(?x) || ?101!=?x ) && ( !bound(?100) || !bound(?x) || ?100!=?x ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX eds:<http://www.delph-in.net/rdf/eds#> 
+select ?graph (group_concat(?103; separator = "\t") AS ?103Values)(group_concat(?102; separator = "\t") AS ?102Values)(group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x; separator = "\t") AS ?xValues) 
+where { 
+GRAPH ?graph { 
+?x eds:ARG2 ?103 . 
+?100 eds:ARG1 ?x . 
+?101 eds:ARG1 ?x . 
+?x eds:ARG1 ?102 . 
+FILTER ( ( !bound(?103) || !bound(?102) || ?103!=?102 ) && ( !bound(?103) || !bound(?101) || ?103!=?101 ) && ( !bound(?103) || !bound(?100) || ?103!=?100 ) && ( !bound(?103) || !bound(?x) || ?103!=?x ) && ( !bound(?102) || !bound(?101) || ?102!=?101 ) && ( !bound(?102) || !bound(?100) || ?102!=?100 ) && ( !bound(?102) || !bound(?x) || ?102!=?x ) && ( !bound(?101) || !bound(?100) || ?101!=?100 ) && ( !bound(?101) || !bound(?x) || ?101!=?x ) && ( !bound(?100) || !bound(?x) || ?100!=?x ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX eds:<http://www.delph-in.net/rdf/eds#> 
+select ?graph (group_concat(?102; separator = "\t") AS ?102Values)(group_concat(?x2; separator = "\t") AS ?x2Values)(group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x1; separator = "\t") AS ?x1Values) 
+where { 
+GRAPH ?graph { 
+?102 eds:ARG2 ?x2 . 
+?100 eds:ARG1 ?x1 . 
+?101 eds:ARG1 ?x2 . 
+?102 eds:ARG1 ?x1 . 
+FILTER ( ( !bound(?102) || !bound(?x2) || ?102!=?x2 ) && ( !bound(?102) || !bound(?101) || ?102!=?101 ) && ( !bound(?102) || !bound(?100) || ?102!=?100 ) && ( !bound(?102) || !bound(?x1) || ?102!=?x1 ) && ( !bound(?x2) || !bound(?101) || ?x2!=?101 ) && ( !bound(?x2) || !bound(?100) || ?x2!=?100 ) && ( !bound(?x2) || !bound(?x1) || ?x2!=?x1 ) && ( !bound(?101) || !bound(?100) || ?101!=?100 ) && ( !bound(?101) || !bound(?x1) || ?101!=?x1 ) && ( !bound(?100) || !bound(?x1) || ?100!=?x1 ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph

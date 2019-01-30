@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>logs.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>HelloWorld</servlet-name>
+		<servlet-class>no.uio.ifi.pgstore.gui.Logging</servlet-class>
+		<init-param>
+			<param-name>DATA_PATH</param-name>
+			<param-value>/usit/sh/scratch/milen/logs/</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+</web-app>

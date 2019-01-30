@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cd `dirname $0`
+
+MAVEN_OPTS=-Xmx2G
+cd trunk/rdf-generator
+
+mvn -q exec:java -Dexec.mainClass=no.uio.ifi.wsi.generator.CreateIndex -Dexec.args="$*"

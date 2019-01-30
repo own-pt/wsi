@@ -1,0 +1,194 @@
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX sdp:<http://ltg.uio.no/graph/sdp#> 
+PREFIX pas:<http://ltg.uio.no/graph/sdp/pas#> 
+PREFIX dm:<http://ltg.uio.no/graph/sdp/dm#> 
+PREFIX pcedt:<http://ltg.uio.no/graph/sdp/pcedt#> 
+select ?graph (group_concat(?100; separator = "\t") AS ?100Values) 
+where { 
+GRAPH ?graph { 
+?100 sdp:form "the"^^xsd:string . 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX sdp:<http://ltg.uio.no/graph/sdp#> 
+PREFIX pas:<http://ltg.uio.no/graph/sdp/pas#> 
+PREFIX dm:<http://ltg.uio.no/graph/sdp/dm#> 
+PREFIX pcedt:<http://ltg.uio.no/graph/sdp/pcedt#> 
+select ?graph (group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values) 
+where { 
+GRAPH ?graph { 
+{ ?100 dm:arg4 ?101 } UNION { { ?100 dm:arg3 ?101 } UNION { { ?100 dm:arg2 ?101 } UNION { ?100 dm:arg1 ?101 } } } 
+FILTER ( ( !bound(?101) || !bound(?100) || ?101!=?100 ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX sdp:<http://ltg.uio.no/graph/sdp#> 
+PREFIX pas:<http://ltg.uio.no/graph/sdp/pas#> 
+PREFIX dm:<http://ltg.uio.no/graph/sdp/dm#> 
+PREFIX pcedt:<http://ltg.uio.no/graph/sdp/pcedt#> 
+select ?graph (group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x; separator = "\t") AS ?xValues) 
+where { 
+GRAPH ?graph { 
+?100 dm:arg1 ?x . 
+?x dm:arg1 ?101 . 
+FILTER ( ( !bound(?101) || !bound(?100) || ?101!=?100 ) && ( !bound(?101) || !bound(?x) || ?101!=?x ) && ( !bound(?100) || !bound(?x) || ?100!=?x ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX sdp:<http://ltg.uio.no/graph/sdp#> 
+PREFIX pas:<http://ltg.uio.no/graph/sdp/pas#> 
+PREFIX dm:<http://ltg.uio.no/graph/sdp/dm#> 
+PREFIX pcedt:<http://ltg.uio.no/graph/sdp/pcedt#> 
+select ?graph (group_concat(?z; separator = "\t") AS ?zValues)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x; separator = "\t") AS ?xValues) 
+where { 
+GRAPH ?graph { 
+?100 dm:arg2 ?z . 
+?100 dm:arg1 ?x . 
+FILTER ( ( !bound(?z) || !bound(?100) || ?z!=?100 ) && ( !bound(?z) || !bound(?x) || ?z!=?x ) && ( !bound(?100) || !bound(?x) || ?100!=?x ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX sdp:<http://ltg.uio.no/graph/sdp#> 
+PREFIX pas:<http://ltg.uio.no/graph/sdp/pas#> 
+PREFIX dm:<http://ltg.uio.no/graph/sdp/dm#> 
+PREFIX pcedt:<http://ltg.uio.no/graph/sdp/pcedt#> 
+select ?graph (group_concat(?102; separator = "\t") AS ?102Values)(group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x; separator = "\t") AS ?xValues) 
+where { 
+GRAPH ?graph { 
+?100 dm:arg2 ?101 . 
+?100 dm:arg1 ?x . 
+?x dm:arg1 ?102 . 
+FILTER ( ( !bound(?102) || !bound(?101) || ?102!=?101 ) && ( !bound(?102) || !bound(?100) || ?102!=?100 ) && ( !bound(?102) || !bound(?x) || ?102!=?x ) && ( !bound(?101) || !bound(?100) || ?101!=?100 ) && ( !bound(?101) || !bound(?x) || ?101!=?x ) && ( !bound(?100) || !bound(?x) || ?100!=?x ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX sdp:<http://ltg.uio.no/graph/sdp#> 
+PREFIX pas:<http://ltg.uio.no/graph/sdp/pas#> 
+PREFIX dm:<http://ltg.uio.no/graph/sdp/dm#> 
+PREFIX pcedt:<http://ltg.uio.no/graph/sdp/pcedt#> 
+select ?graph (group_concat(?102; separator = "\t") AS ?102Values)(group_concat(?x2; separator = "\t") AS ?x2Values)(group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x1; separator = "\t") AS ?x1Values) 
+where { 
+GRAPH ?graph { 
+?100 dm:arg2 ?x2 . 
+?100 dm:arg1 ?x1 . 
+?x1 dm:arg1 ?101 . 
+?x2 dm:arg1 ?102 . 
+FILTER ( ( !bound(?102) || !bound(?x2) || ?102!=?x2 ) && ( !bound(?102) || !bound(?101) || ?102!=?101 ) && ( !bound(?102) || !bound(?100) || ?102!=?100 ) && ( !bound(?102) || !bound(?x1) || ?102!=?x1 ) && ( !bound(?x2) || !bound(?101) || ?x2!=?101 ) && ( !bound(?x2) || !bound(?100) || ?x2!=?100 ) && ( !bound(?x2) || !bound(?x1) || ?x2!=?x1 ) && ( !bound(?101) || !bound(?100) || ?101!=?100 ) && ( !bound(?101) || !bound(?x1) || ?101!=?x1 ) && ( !bound(?100) || !bound(?x1) || ?100!=?x1 ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX sdp:<http://ltg.uio.no/graph/sdp#> 
+PREFIX pas:<http://ltg.uio.no/graph/sdp/pas#> 
+PREFIX dm:<http://ltg.uio.no/graph/sdp/dm#> 
+PREFIX pcedt:<http://ltg.uio.no/graph/sdp/pcedt#> 
+select ?graph (group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x; separator = "\t") AS ?xValues) 
+where { 
+GRAPH ?graph { 
+?100 dm:arg1 ?x . 
+?101 dm:arg1 ?x . 
+FILTER ( ( !bound(?101) || !bound(?100) || ?101!=?100 ) && ( !bound(?101) || !bound(?x) || ?101!=?x ) && ( !bound(?100) || !bound(?x) || ?100!=?x ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX sdp:<http://ltg.uio.no/graph/sdp#> 
+PREFIX pas:<http://ltg.uio.no/graph/sdp/pas#> 
+PREFIX dm:<http://ltg.uio.no/graph/sdp/dm#> 
+PREFIX pcedt:<http://ltg.uio.no/graph/sdp/pcedt#> 
+select ?graph (group_concat(?102; separator = "\t") AS ?102Values)(group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x; separator = "\t") AS ?xValues) 
+where { 
+GRAPH ?graph { 
+?100 dm:arg1 ?x . 
+?101 dm:arg1 ?x . 
+?x dm:arg1 ?102 . 
+FILTER ( ( !bound(?102) || !bound(?101) || ?102!=?101 ) && ( !bound(?102) || !bound(?100) || ?102!=?100 ) && ( !bound(?102) || !bound(?x) || ?102!=?x ) && ( !bound(?101) || !bound(?100) || ?101!=?100 ) && ( !bound(?101) || !bound(?x) || ?101!=?x ) && ( !bound(?100) || !bound(?x) || ?100!=?x ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX sdp:<http://ltg.uio.no/graph/sdp#> 
+PREFIX pas:<http://ltg.uio.no/graph/sdp/pas#> 
+PREFIX dm:<http://ltg.uio.no/graph/sdp/dm#> 
+PREFIX pcedt:<http://ltg.uio.no/graph/sdp/pcedt#> 
+select ?graph (group_concat(?103; separator = "\t") AS ?103Values)(group_concat(?102; separator = "\t") AS ?102Values)(group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x; separator = "\t") AS ?xValues) 
+where { 
+GRAPH ?graph { 
+?x dm:arg2 ?103 . 
+?100 dm:arg1 ?x . 
+?101 dm:arg1 ?x . 
+?x dm:arg1 ?102 . 
+FILTER ( ( !bound(?103) || !bound(?102) || ?103!=?102 ) && ( !bound(?103) || !bound(?101) || ?103!=?101 ) && ( !bound(?103) || !bound(?100) || ?103!=?100 ) && ( !bound(?103) || !bound(?x) || ?103!=?x ) && ( !bound(?102) || !bound(?101) || ?102!=?101 ) && ( !bound(?102) || !bound(?100) || ?102!=?100 ) && ( !bound(?102) || !bound(?x) || ?102!=?x ) && ( !bound(?101) || !bound(?100) || ?101!=?100 ) && ( !bound(?101) || !bound(?x) || ?101!=?x ) && ( !bound(?100) || !bound(?x) || ?100!=?x ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
+ 
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:<http://www.w3.org/2002/07/owl#> 
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX sdp:<http://ltg.uio.no/graph/sdp#> 
+PREFIX pas:<http://ltg.uio.no/graph/sdp/pas#> 
+PREFIX dm:<http://ltg.uio.no/graph/sdp/dm#> 
+PREFIX pcedt:<http://ltg.uio.no/graph/sdp/pcedt#> 
+select ?graph (group_concat(?102; separator = "\t") AS ?102Values)(group_concat(?x2; separator = "\t") AS ?x2Values)(group_concat(?101; separator = "\t") AS ?101Values)(group_concat(?100; separator = "\t") AS ?100Values)(group_concat(?x1; separator = "\t") AS ?x1Values) 
+where { 
+GRAPH ?graph { 
+?102 dm:arg2 ?x2 . 
+?100 dm:arg1 ?x1 . 
+?101 dm:arg1 ?x2 . 
+?102 dm:arg1 ?x1 . 
+FILTER ( ( !bound(?102) || !bound(?x2) || ?102!=?x2 ) && ( !bound(?102) || !bound(?101) || ?102!=?101 ) && ( !bound(?102) || !bound(?100) || ?102!=?100 ) && ( !bound(?102) || !bound(?x1) || ?102!=?x1 ) && ( !bound(?x2) || !bound(?101) || ?x2!=?101 ) && ( !bound(?x2) || !bound(?100) || ?x2!=?100 ) && ( !bound(?x2) || !bound(?x1) || ?x2!=?x1 ) && ( !bound(?101) || !bound(?100) || ?101!=?100 ) && ( !bound(?101) || !bound(?x1) || ?101!=?x1 ) && ( !bound(?100) || !bound(?x1) || ?100!=?x1 ) ) 
+} 
+} 
+GROUP BY ?graph 
+ORDER BY ?graph 
