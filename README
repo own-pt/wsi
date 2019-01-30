@@ -1,7 +1,7 @@
 # -*- mode:org -*-
 #+TITLE: WeSearch Infrastructure (WSI)
 
-original implementation and demos [[http://wesearch.delph-in.net/][here]].
+original implementation and demos [[http://wesearch.delph-in.net/][here]] (or see [[https://github.com/own-pt/wsi/commit/e403240130ffdbcd58b6efa635ed1e81e8d3ae94][first commit]]).
 
 * how to run
 : docker run -v /home/odanoburu/work/data/:/home/milen/data/ -e WSI_INDEX_FORMATS='mrs,eds' -e WSI_PATH_TO_INDEX='/home/milen/data/repsol.gz' -it --rm -p 9897:9897 wsi
@@ -42,6 +42,7 @@ matter of:
 - install docker;
 
 - build docker file:
+  : cd docker
   : docker build -t wsi .
 
 ** no docker
