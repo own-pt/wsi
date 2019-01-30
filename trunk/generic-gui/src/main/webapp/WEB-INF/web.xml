@@ -13,7 +13,7 @@
 		<servlet-class>no.uio.ifi.wsi.gui.GenericSearchInterface</servlet-class>
 		<init-param>
 			<param-name>DATA_PATH</param-name>
-			<param-value>/home/milen/wsi/test</param-value>
+			<param-value>/home/milen/wsi/test/</param-value>
 		</init-param>
 		<init-param>
 			<param-name>LOG_PATH</param-name>
