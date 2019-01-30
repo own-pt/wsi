@@ -26,14 +26,9 @@ RUN curl http://repo2.maven.org/maven2/org/mortbay/jetty/jetty-runner/7.6.9.v201
 
 EXPOSE 9897
 
-ENV WSI_INDEX_FORMATS='mrs' \
+ENV WSI_INDEX_FORMATS='mrs,eds' \
     WSI_PATH_TO_INDEX='/home/milen/wsi/example/00110.gz'
 
-CMD cd /home/milen/wsi \
-    && for format in ${WSI_INDEX_FORMATS//,/ } do \
-       ./create-index -f "$format" -n -o '/home/milen/wsi/test' "$WSI_PATH_TO_INDEX" ; done \
-    && cd /home/milen \
-    && java -Xmx400m -Xss4m \
-      -Djava.awt.headless=true \
-      -jar jetty-runner.jar --port 9897 wsi/trunk/generic-gui/target/test.war
-#java -Xmx400m -Xss4m -Djava.awt.headless=true -jar jetty-runner.jar --port 9897 wsi/trunk/generic-gui/target/test.war
+COPY run.sh /home/milen
+
+CMD bash run.sh

@@ -4,7 +4,7 @@
 original implementation and demos [[http://wesearch.delph-in.net/][here]] (or see [[https://github.com/own-pt/wsi/commit/e403240130ffdbcd58b6efa635ed1e81e8d3ae94][first commit]]).
 
 * how to run
-: docker run -v /home/odanoburu/work/data/:/home/milen/data/ -e WSI_INDEX_FORMATS='mrs,eds' -e WSI_PATH_TO_INDEX='/home/milen/data/repsol.gz' -it --rm -p 9897:9897 wsi
+: docker run -v /path/to/data/:/home/milen/data/ -e WSI_INDEX_FORMATS='mrs,eds' -e WSI_PATH_TO_INDEX='/home/milen/data/input.gz' -it --rm -p 9897:9897 wsi
 
 ** explanation
 - you must mount a volume so that docker has access to the files you
