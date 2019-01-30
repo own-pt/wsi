@@ -158,7 +158,7 @@ public class CommandLineReader {
 		new File(countDirectory).mkdir();
 		tdbDirectory = outputDirectory + "/tdb/";
 		new File(tdbDirectory).mkdir();
-		rdfDirectory = outputDirectory + "/rdf/";
+		rdfDirectory = outputDirectory + "/rdf";
 		new File(rdfDirectory).mkdir();
 		svgDirectory = outputDirectory + "/svg/";
 		new File(svgDirectory).mkdir();

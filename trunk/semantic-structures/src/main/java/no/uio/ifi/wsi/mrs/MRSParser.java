@@ -58,7 +58,7 @@ public class MRSParser {
 		int start = -1;
 		for (int i = 0; i < lines.size(); i++) {
 			String s = lines.get(i);
-			if (s.startsWith(" [ LTOP:")) {
+			if (s.startsWith(" [ TOP:")) {
 				start = i;
 				break;
 			}
