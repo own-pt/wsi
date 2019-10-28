@@ -47,3 +47,18 @@ matter of:
 
 ** no docker
 See =README-old.txt=.
+* how to deploy
+First, you must build the image with the data in =data= directory and
+push to our private container registry (for the deploy instance the
+data could not be provided as a volume, so that is the reason for
+provide the data in the build stage).
+
+: docker build res-brl-krr-docker-local.artifactory.swg-devops.com/wsi .
+: docker push res-brl-krr-docker-local.artifactory.swg-devops.com/wsi
+
+To finally deploy, first sign in to your IBM Cloud account with
+=ibmcloud login --sso=, then use =ibmcloud target --cf= to target
+Cloud Foundry org/space and before run the deploy command edit the
+=manifest.yml= and run:
+
+: CF_DOCKER_PASSWORD=YOUR-PASSWORD ibmcloud cf push

@@ -1,0 +1,9 @@
+---
+applications:
+- name: wsi
+  docker:
+    image: res-brl-krr-docker-local.artifactory.swg-devops.com/wsi:latest
+    username: docker-user-name
+  timeout: 300
+  memory: 2G
+  disk_quota: 2G
