@@ -3,7 +3,7 @@ applications:
 - name: wsi
   docker:
     image: us.icr.io/brl-krr/wsi:20200725
-    username: alexrad@br.ibm.com
+    username: iamapikey
   timeout: 300
-  memory: 2G
+  memory: 5G
   disk_quota: 2G

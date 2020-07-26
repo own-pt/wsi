@@ -5,8 +5,71 @@ original implementation and demos [[http://wesearch.delph-in.net/][here]] (or se
 
 * dependencies
 
-- apache-jena-2.11.0.tar.gz
+- apache-jena-2.11.0 (see http://archive.apache.org/dist/jena/binaries/)
 - WSI DELPH-IN
+- https://pydelphin.readthedocs.io
+- http://sweaglesw.org/linguistics/ace/
+- The English Resource Grammar, http://erg.delph-in.net/logon
+- http://moin.delph-in.net/LogonTop 
+- http://github.com/own-pt/docker-delphin
+
+* prepare the environment 
+
+First we need to install pydelphin, possible using a virtual
+environment. See pydelphin documentation.
+
+Next we need access to a [[moin.delph-in.net/LogonTop][Logon]] distribution. The best approach is to
+use the [[github.com/own-pt/docker-delphin][docker-delphin]].
+
+Pydelphin will need Ace to process the data. Ace is available for
+Linux and MacOS but you may also use the
+http://moin.delph-in.net/ErgApi or run Pydelphin and ACE inside the
+docker-delphin. The local installation is faster. In the ACE homepage,
+we can get the last precompiled ERG, but one can also compile the
+grammar with ACE (see http://moin.delph-in.net/ErgTop).
+
+You will need the WSI interace. Clone the SVN repository in the folder
+=wsi-src= following the steps in
+http://moin.delph-in.net/WeSearch/Interface. See the =wsi-src.changes=
+to inspect what do you need to change in the code.
+
+Download the Apache Jena 2.11 inside the =wsi-src= diretory.
+
+* step by step
+
+See the references for additional details.
+
+From a text file with one sentene per line we created a
+profile and process it with pydelphin.
+
+: delphin mkprof --input input.text --relations ~/hpsg/logon/lingo/lkb/src/tsdb/skeletons/english/Relations --skeleton profile
+
+Note that in the command above, I am pointing to a file in the [[http://moin.delph-in.net/LogonTop][Logon]]
+distribution installed in my machine. But for this step, you don't
+need to install the LOGON distribution. You can download the [[http://svn.emmtee.net/trunk/lingo/lkb/src/tsdb/skeletons/english/Relations][Relations]]
+only. But we will need the LOGON below anyway.
+
+Now we have to process this profile with ACE, making the analysis of
+each sentence. This can be done with pydelphin, calling the [[http://sweaglesw.org/linguistics/ace/][ACE]] parser
+with the [[http://erg.delph-in.net/logon][English Resource Grammar]]. 
+
+#+BEGIN_SRC python
+  from delphin import ace
+  from delphin import tsdb
+  from delphin import itsdb
+  ts = itsdb.TestSuite('profile')
+  with ace.ACEParser('erg.dat', cmdargs = ['-n','1','--rooted-derivations']) as cpu: ts.process(cpu)
+#+END_SRC
+
+Now we export the profile to one file for each sentence with the
+derivation, MRS and EDS representations. For that step, I have the
+LOGONd distribution running in my MacOS using the
+http://github.com/own-pt/docker-delphin 
+
+: user@c57b3a20ff4c:~/logon$ ./redwoods --binary --terg --home /home/user/wsi/ --target /home/user/wsi/tmp/ --export input,derivation,mrs,eds --active all profile
+
+The =tmp/profile= directory can be indexed with the `create-index`
+script, see next section.
 
 * index the data
 
@@ -16,54 +79,59 @@ Download apache-jena-2.11 and expand the tar.gz wsi-src folder.
 cd wsi-src
 export JENA_HOME=$(pwd)/apache-jena-2.11.0
 ./compile
-./create-index -f mrs -o /Users/ar/hpsg/wsi/data/mrs /Users/ar/hpsg/wsi/tmp
-./create-index -f eds -o /Users/ar/hpsg/wsi/data/eds /Users/ar/hpsg/wsi/tmp
+cp src/common-gui/target/common-gui-1.0-SNAPSHOT.war ../image/
+./create-index -f mrs -o /Users/ar/hpsg/wsi/image/data/mrs /Users/ar/hpsg/wsi/tmp/profile
+./create-index -f eds -o /Users/ar/hpsg/wsi/image/data/eds /Users/ar/hpsg/wsi/tmp/profile
 #+END_SRC
 
-* docker build and run
+Note that for the =create-index= scripts, we need to pass the absolute path.
 
-: docker build -t wsi .
+* docker build and run locally
+
+: docker build -t wsi image
 : docker run -it --publish 8081:8080 wsi
 
-In the browser, access http://localhost:8081/demo/search.jsp?search=%22%22 
-
-try '_*_v_*[ARG? x]'
-
-* step by step
-
-See references for some initial steps.
-
-From a text file with one sentene per line we created a profile and
-process it with pydelphin.
-
-One file per sentence were exported from the profile with the
-`redwoods` script in the LOGON distribution. Files are saved in the
-`tmp` directory.
-
-The `tmp` directory was indexed with the `create-index` script
-mentioned above.
+In the browser, access http://localhost:8081/demo/. We can now try
+=_*_v_*[ARG? x]=.
 
 * how to deploy
 
-First, you must build the image with the data in =data= directory and
-push to our private container registry (for the deploy instance the
-data could not be provided as a volume, so that is the reason for
-provide the data in the build stage).
+The two most important steps are below. The image creation and its
+deploy to a register. Next, the cloud foundry app creation using the
+image [fn:1].
 
-: docker build res-brl-krr-docker-local.artifactory.swg-devops.com/wsi .
-: docker push res-brl-krr-docker-local.artifactory.swg-devops.com/wsi
+You may need to create a new apikey [fn:4] and dowload the JSON file
+once it was created. The =<PASSWORD>= below is the value of =apikey=
+in the JSON.
 
-To finally deploy, first sign in to your IBM Cloud account with
-=ibmcloud login --sso=, then use =ibmcloud target --cf= to target
-Cloud Foundry org/space and before run the deploy command edit the
-=manifest.yml= and run:
+#+BEGIN_SRC bash
+ibmcloud cr namespace-add brl-krr
+ibmcloud cr build --tag registry.ng.bluemix.net/brl-krr/wsi:202007 .
+ibmcloud cr image-list
+ibmcloud target --cf-api api.us-south.cf.cloud.ibm.com -o brl-nlp -s dev
+ibmcloud iam api-keys
+CF_DOCKER_PASSWORD=<PASSWORD> ibmcloud cf push wsi --docker-image=us.icr.io/brl-krr/wsi:202007 --docker-username iamapikey
+#+END_SRC
 
-: CF_DOCKER_PASSWORD=YOUR-PASSWORD ibmcloud cf push
+The =cf push= command and the support of Cloud Fountry to run docker
+containers is described in [fn:2] and [fn:3].
 
 * references
 
 - http://moin.delph-in.net/WeSearch/Interface
 - http://moin.delph-in.net/ErgWeSearch
-- https://medium.com/@pra4mesh/deploy-war-in-docker-tomcat-container-b52a3baea448
 
-- https://developer.ibm.com/technologies/containers/tutorials/building-docker-images-locally-and-in-cloud/
+Deploy docker as Cloud Foundry app in IBM Cloud
+
+- https://medium.com/@pra4mesh/deploy-war-in-docker-tomcat-container-b52a3baea448
+- https://developer.ibm.com/depmodels/cloud/articles/beyond-the-basics-with-cloud-foundry/
+
+* Footnotes
+
+[fn:4] https://cloud.ibm.com/docs/account?topic=account-userapikey#userapikey
+
+[fn:3] https://cloud.ibm.com/docs/Registry?topic=Registry-registry_access#registry_access_apikey_auth_other_example_cf
+
+[fn:2] https://docs.cloudfoundry.org/devguide/deploy-apps/push-docker.html
+
+[fn:1] https://developer.ibm.com/technologies/containers/tutorials/building-docker-images-locally-and-in-cloud/

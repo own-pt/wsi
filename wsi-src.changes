@@ -1,0 +1,54 @@
+Index: README.txt
+===================================================================
+--- README.txt	(revision 28899)
++++ README.txt	(working copy)
+@@ -14,9 +14,9 @@
+ 
+ 2. Compilation and Installation
+ 
+-Command: mvn install
++Command: ./compile
+ 
+-The compilation and  installation procedure should printout the following lines 
++The script will call `mvn install`, installation procedure should printout the following lines 
+ 
+ [INFO] ------------------------------------------------------------------------
+ [INFO] BUILD SUCCESS
+Index: properties.txt
+===================================================================
+--- properties.txt	(revision 28899)
++++ properties.txt	(working copy)
+@@ -1,4 +1,4 @@
+ demo-name=
+ log-dir=
+-default=
++default=EDS
+ order=
+Index: src/common-gui/src/main/webapp/WEB-INF/web.xml
+===================================================================
+--- src/common-gui/src/main/webapp/WEB-INF/web.xml	(revision 28899)
++++ src/common-gui/src/main/webapp/WEB-INF/web.xml	(working copy)
+@@ -18,7 +18,7 @@
+ 		<servlet-class>no.uio.ifi.wsi.gui.SearchInterface</servlet-class>
+ 		<init-param>
+ 			<param-name>DATA_PATH</param-name>
+-			<param-value>/ltg/ls/aserve/indices/sdp/</param-value>
++			<param-value>/root/data/</param-value>
+ 		</init-param>
+ 		
+ 		<load-on-startup>1</load-on-startup>
+Index: src/rdf-generator/src/main/java/no/uio/ifi/wsi/generator/CreateIndex.java
+===================================================================
+--- src/rdf-generator/src/main/java/no/uio/ifi/wsi/generator/CreateIndex.java	(revision 28899)
++++ src/rdf-generator/src/main/java/no/uio/ifi/wsi/generator/CreateIndex.java	(working copy)
+@@ -27,8 +27,8 @@
+ 		CountIndexGenerator generator = new CountIndexGenerator(cmlReader.getCountDirectory());
+ 		generator.index(cmlReader.getRdfDirectory());
+ 		generator.writeCache();
+-		runProcess(new String[] { "apache-jena-2.11.0/bin/tdbloader2", "--loc", cmlReader.getTdbDirectory() + "/1",
+-				cmlReader.getRdfDirectory() + "/*" });
++		runProcess(new String[] { "apache-jena-2.11.0/bin/tdbloader2", "--loc", cmlReader.getTdbDirectory() + "1",
++				cmlReader.getRdfDirectory() + "1.nq" });
+ 	}
+ 
+ 	public static void runProcess(String[] command) throws Exception {

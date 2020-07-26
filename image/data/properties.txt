@@ -1,0 +1,4 @@
+demo-name=demo
+log-dir=/root/
+default=EDS
+order=
