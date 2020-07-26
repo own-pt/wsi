@@ -1,8 +1,0 @@
-#!/bin/bash
-
-cd `dirname $0`
-
-MAVEN_OPTS=-Xmx2G
-cd trunk/
-
-mvn install

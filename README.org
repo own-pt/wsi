@@ -1,0 +1,69 @@
+# -*- mode:org -*-
+#+TITLE: WeSearch Infrastructure (WSI)
+
+original implementation and demos [[http://wesearch.delph-in.net/][here]] (or see [[https://github.com/own-pt/wsi/commit/e403240130ffdbcd58b6efa635ed1e81e8d3ae94][first commit]]).
+
+* dependencies
+
+- apache-jena-2.11.0.tar.gz
+- WSI DELPH-IN
+
+* index the data
+
+Download apache-jena-2.11 and expand the tar.gz wsi-src folder.
+
+#+BEGIN_SRC bash
+cd wsi-src
+export JENA_HOME=$(pwd)/apache-jena-2.11.0
+./compile
+./create-index -f mrs -o /Users/ar/hpsg/wsi/data/mrs /Users/ar/hpsg/wsi/tmp
+./create-index -f eds -o /Users/ar/hpsg/wsi/data/eds /Users/ar/hpsg/wsi/tmp
+#+END_SRC
+
+* docker build and run
+
+: docker build -t wsi .
+: docker run -it --publish 8081:8080 wsi
+
+In the browser, access http://localhost:8081/demo/search.jsp?search=%22%22 
+
+try '_*_v_*[ARG? x]'
+
+* step by step
+
+See references for some initial steps.
+
+From a text file with one sentene per line we created a profile and
+process it with pydelphin.
+
+One file per sentence were exported from the profile with the
+`redwoods` script in the LOGON distribution. Files are saved in the
+`tmp` directory.
+
+The `tmp` directory was indexed with the `create-index` script
+mentioned above.
+
+* how to deploy
+
+First, you must build the image with the data in =data= directory and
+push to our private container registry (for the deploy instance the
+data could not be provided as a volume, so that is the reason for
+provide the data in the build stage).
+
+: docker build res-brl-krr-docker-local.artifactory.swg-devops.com/wsi .
+: docker push res-brl-krr-docker-local.artifactory.swg-devops.com/wsi
+
+To finally deploy, first sign in to your IBM Cloud account with
+=ibmcloud login --sso=, then use =ibmcloud target --cf= to target
+Cloud Foundry org/space and before run the deploy command edit the
+=manifest.yml= and run:
+
+: CF_DOCKER_PASSWORD=YOUR-PASSWORD ibmcloud cf push
+
+* references
+
+- http://moin.delph-in.net/WeSearch/Interface
+- http://moin.delph-in.net/ErgWeSearch
+- https://medium.com/@pra4mesh/deploy-war-in-docker-tomcat-container-b52a3baea448
+
+- https://developer.ibm.com/technologies/containers/tutorials/building-docker-images-locally-and-in-cloud/

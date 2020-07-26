@@ -2,8 +2,8 @@
 applications:
 - name: wsi
   docker:
-    image: res-brl-krr-docker-local.artifactory.swg-devops.com/wsi:latest
-    username: docker-user-name
+    image: us.icr.io/brl-krr/wsi:20200725
+    username: alexrad@br.ibm.com
   timeout: 300
   memory: 2G
   disk_quota: 2G
